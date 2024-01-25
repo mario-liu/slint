@@ -21,6 +21,7 @@ list(PREPEND CMAKE_MODULE_PATH ${Corrosion_SOURCE_DIR}/cmake)
 find_package(Rust 1.70 REQUIRED MODULE)
 
 option(BUILD_SHARED_LIBS "Build Slint as shared library" OFF)
+set(BUILD_SHARED_LIBS OFF)
 option(SLINT_FEATURE_COMPILER "Enable support for compiling .slint files to C++ ahead of time" ON)
 add_feature_info(SLINT_FEATURE_COMPILER SLINT_FEATURE_COMPILER "Enable support for compiling .slint files to C++ ahead of time")
 option(SLINT_BUILD_RUNTIME "Actually build the Slint runtime libraries (Disable that to only build the compiler)" ON)
@@ -81,7 +82,7 @@ define_renderer_winit_compat_option(skia-opengl)
 define_renderer_winit_compat_option(skia-vulkan)
 define_renderer_winit_compat_option(software)
 
-define_cargo_dependent_feature(interpreter "Enable support for the Slint interpeter to load .slint files at run-time" ON "NOT SLINT_FEATURE_FREESTANDING")
+define_cargo_dependent_feature(interpreter "Enable support for the Slint interpeter to load .slint files at run-time" OFF "NOT SLINT_FEATURE_FREESTANDING")
 
 define_cargo_dependent_feature(backend-winit "Enable support for the winit crate to interaction with all windowing systems." ON "NOT SLINT_FEATURE_FREESTANDING")
 define_cargo_dependent_feature(backend-winit-x11 "Enable support for the winit create to interact only with the X11 windowing system on Unix. Enable this option and turn off SLINT_FEATURE_BACKEND_WINIT for a smaller build with just X11 support on Unix." OFF "NOT SLINT_FEATURE_FREESTANDING")
