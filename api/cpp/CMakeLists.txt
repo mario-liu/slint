@@ -20,7 +20,7 @@ FetchContent_MakeAvailable(Corrosion)
 list(PREPEND CMAKE_MODULE_PATH ${Corrosion_SOURCE_DIR}/cmake)
 find_package(Rust 1.70 REQUIRED MODULE)
 
-option(BUILD_SHARED_LIBS "Build Slint as shared library" ON)
+option(BUILD_SHARED_LIBS "Build Slint as shared library" OFF)
 option(SLINT_FEATURE_COMPILER "Enable support for compiling .slint files to C++ ahead of time" ON)
 add_feature_info(SLINT_FEATURE_COMPILER SLINT_FEATURE_COMPILER "Enable support for compiling .slint files to C++ ahead of time")
 option(SLINT_BUILD_RUNTIME "Actually build the Slint runtime libraries (Disable that to only build the compiler)" ON)
